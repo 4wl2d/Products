@@ -25,7 +25,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             ProductsTheme {
                 val lifecycle = LocalLifecycleOwner.current.lifecycle
-                LaunchedEffect(key1 = lifecycle) {
+                LaunchedEffect(lifecycle) {
                     repeatOnLifecycle(state = Lifecycle.State.STARTED) {
                         EventBus.events.collect {event ->
                             if (event is Event.Toast) {
